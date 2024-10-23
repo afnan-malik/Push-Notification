@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
 
+import '../app/ChatScreen/bindings/theme_binding.dart';
+import '../app/ChatScreen/views/theme_view.dart';
 import '../app/home/bindings/home_binding.dart';
 import '../app/home/views/home_view.dart';
-import '../app/theme/bindings/theme_binding.dart';
-import '../app/theme/views/theme_view.dart';
-
 part 'app_routes.dart';
 
 class AppPages {

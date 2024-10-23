@@ -17,18 +17,21 @@ class HomeView extends GetView<HomeController> {
             centerTitle: true,
             backgroundColor: Colors.blue,
           ),
-          body:  Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child:Obx(()=>  Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Switch(value: controller.value.value, activeColor:Colors.cyan,onChanged: (newValue){
-                  controller.value.value=!controller.value.value;
-                  controller.value.value?Get.changeTheme(ThemeData.dark()):Get.changeTheme(ThemeData.light());
-                }),
-                Text(controller.value.value?"Light":"Dark",style: const TextStyle(fontSize:20),)
-              ],)
-            ),
+          body:  Column(
+            children: [
+              Obx(()=>  Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: Center(
+                  child: Switch(value: controller.value.value, activeColor:Colors.blue,onChanged: (newValue){
+                    controller.value.value=!controller.value.value;
+                    controller.value.value?controller.performDelayedAction():Get.changeTheme(ThemeData.light());
+                  }),
+                ),
+              )),
+
+              TextButton(onPressed: (){},
+                  child: const Text('Click me'))
+            ],
           ),
         );
       }
