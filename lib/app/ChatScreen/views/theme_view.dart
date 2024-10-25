@@ -9,16 +9,20 @@ class ThemeView extends GetView<ThemeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ThemeView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'ThemeView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: Stack(
+        children:[
+          SizedBox(
+            height: double.infinity,
+            child: Image.network(
+              '',
+              errorBuilder: (context, error, stackTrace) {
+                return const Text('Failed to load ');
+              },
+              fit: BoxFit.fill,
+            ),
+          ),
+        ]
+      )
     );
   }
 }
